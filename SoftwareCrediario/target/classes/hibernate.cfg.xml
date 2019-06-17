@@ -25,9 +25,10 @@
         <property name="generate_statistics">true</property>
         <property name="use_sql_comments">false</property>
 
+	
+        <mapping class="modelo.Senha"/>
+        <mapping class="modelo.Vendedor"/>
 	<!--
-        <mapping class="model.Cliente"/>
-        <mapping class="model.Endereco"/>
         <mapping class="model.Empregado"/>
         <mapping class="model.Pedido"/>      
         <mapping class="model.Categoria"/>
