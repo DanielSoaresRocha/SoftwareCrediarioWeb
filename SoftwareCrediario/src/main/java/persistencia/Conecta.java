@@ -1,4 +1,4 @@
-package percistencia;
+package persistencia;
 
 import org.hibernate.Session;
 
