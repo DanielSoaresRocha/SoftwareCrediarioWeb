@@ -14,7 +14,7 @@ public class Senha implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_endereco")
+    @Column(name = "id_senha")
     private int id;
     
     @Column(name="senha")
