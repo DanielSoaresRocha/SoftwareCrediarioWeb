@@ -1,4 +1,6 @@
-percistencia/HibernateUtil.class
 modelo/Cliente.class
 modelo/Vendedor.class
-percistencia/Conecta.class
+controle/teste.class
+modelo/Senha.class
+persistencia/HibernateUtil.class
+persistencia/Conecta.class

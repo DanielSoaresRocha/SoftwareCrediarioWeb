@@ -1,4 +1,6 @@
-/home/daniel/NetBeansProjects/SoftwareCrediario/src/main/java/modelo/Cliente.java
-/home/daniel/NetBeansProjects/SoftwareCrediario/src/main/java/percistencia/HibernateUtil.java
-/home/daniel/NetBeansProjects/SoftwareCrediario/src/main/java/percistencia/Conecta.java
-/home/daniel/NetBeansProjects/SoftwareCrediario/src/main/java/modelo/Vendedor.java
+/home/daniel/NetBeansProjects/SoftwareCrediarioWeb/SoftwareCrediario/src/main/java/modelo/Vendedor.java
+/home/daniel/NetBeansProjects/SoftwareCrediarioWeb/SoftwareCrediario/src/main/java/controle/teste.java
+/home/daniel/NetBeansProjects/SoftwareCrediarioWeb/SoftwareCrediario/src/main/java/modelo/Senha.java
+/home/daniel/NetBeansProjects/SoftwareCrediarioWeb/SoftwareCrediario/src/main/java/persistencia/Conecta.java
+/home/daniel/NetBeansProjects/SoftwareCrediarioWeb/SoftwareCrediario/src/main/java/persistencia/HibernateUtil.java
+/home/daniel/NetBeansProjects/SoftwareCrediarioWeb/SoftwareCrediario/src/main/java/modelo/Cliente.java
