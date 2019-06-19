@@ -31,8 +31,8 @@ public class GenericDaoImpl<T, ID extends Serializable> implements IGenericDao<T
         this.klass = klass;
         this.session = HibernateUtil.getSessionFactory().openSession();
     }
-
-    public T findById(ID id) {
+ 
+   public T findById(ID id) {
         T object = (T) session.get(klass, id);
         return object;
     }
