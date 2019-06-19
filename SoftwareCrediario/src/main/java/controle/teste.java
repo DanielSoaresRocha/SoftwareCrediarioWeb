@@ -20,7 +20,7 @@ public class teste {
         
         Vendedor v = new Vendedor();
         v.setNome("Daniel");
-        v.setCpf(1235144);
+        v.setCpf("243243");
         
         Cliente c = new Cliente();
         c.setNome("carlos");

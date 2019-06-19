@@ -15,7 +15,7 @@ public class Vendedor implements Serializable {
     private int id;
 
     @Column(name = "cpf")
-    private int cpf;
+    private String cpf;
 
     @Column(name = "nome")
     private String nome;
@@ -43,9 +43,10 @@ public class Vendedor implements Serializable {
     public Vendedor() {
     }
 
-    public Vendedor(int cpf, String nome) {
+    public Vendedor(String cpf, String nome, String senha) {
         this.cpf = cpf;
         this.nome = nome;
+        this.senha = senha;
     }
 
     public List<Cliente> getClientes() {
@@ -72,11 +73,11 @@ public class Vendedor implements Serializable {
         this.id = id;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
