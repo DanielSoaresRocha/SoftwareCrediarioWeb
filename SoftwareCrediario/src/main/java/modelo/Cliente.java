@@ -1,14 +1,37 @@
 
 package modelo;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.*;
 
-public class Cliente {
+@Entity
+@Table(name = "cliente")
+public class Cliente implements Serializable{
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "id_cliente")
     private int id;
+    
+    @Column(name= "nome")
     private String nome;
+    
+    @Column(name= "cpf")
     private String cpf;
+    
+    @Column(name= "endereco")
     private String endereco;
+    
+    @Column(name= "telefone")
     private int telefone;
+    
+    @Column(name= "informacoes")
     private String informacoes;
+    
+    @ManyToMany(mappedBy="clientes")
+    private List<Vendedor> vendedores = new ArrayList<>();
 
     public Cliente() {
     }
@@ -21,6 +44,16 @@ public class Cliente {
         this.informacoes = informacoes;
     }
 
+    public List<Vendedor> getVendedores() {
+        return vendedores;
+    }
+
+    public void setVendedores(List<Vendedor> vendedores) {
+        this.vendedores = vendedores;
+    }
+
+    
+    
     public int getId() {
         return id;
     }

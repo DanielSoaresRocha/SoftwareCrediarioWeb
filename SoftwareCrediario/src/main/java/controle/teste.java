@@ -1,10 +1,11 @@
 package controle;
 
+import modelo.Cliente;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import persistencia.HibernateUtil;
-import modelo.Senha;
+//import modelo.Senha;
 import modelo.Vendedor;
 /**
  *
@@ -21,13 +22,15 @@ public class teste {
         v.setNome("Daniel");
         v.setCpf(1235144);
         
-        Senha s = new Senha();
-        s.setSenha("daniel123");
+        Cliente c = new Cliente();
+        c.setNome("carlos");
+        c.setCpf("31453445");
+        c.setEndereco("baixa da égua");
+        c.setInformacoes("fkgjsdfogjihdffgjer");
         
-        v.setSenha(s);
-        s.setVendedor(v);
+        v.addCliente(c);
+        sessao.saveOrUpdate((Vendedor) v);
         
-        sessao.save(s);
         
         transacao.commit();
         

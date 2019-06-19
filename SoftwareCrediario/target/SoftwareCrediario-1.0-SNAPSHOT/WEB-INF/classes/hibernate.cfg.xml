@@ -26,8 +26,8 @@
         <property name="use_sql_comments">false</property>
 
 	
-        <mapping class="modelo.Senha"/>
         <mapping class="modelo.Vendedor"/>
+        <mapping class="modelo.Cliente"/>
 	<!--
         <mapping class="model.Empregado"/>
         <mapping class="model.Pedido"/>      

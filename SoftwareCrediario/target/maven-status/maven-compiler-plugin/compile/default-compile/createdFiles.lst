@@ -1,6 +1,5 @@
-modelo/Cliente.class
-modelo/Vendedor.class
-controle/teste.class
-modelo/Senha.class
-persistencia/HibernateUtil.class
-persistencia/Conecta.class
+controle\teste.class
+modelo\Cliente.class
+persistencia\HibernateUtil.class
+modelo\Vendedor.class
+persistencia\Conecta.class
