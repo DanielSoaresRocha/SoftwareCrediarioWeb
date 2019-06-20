@@ -1,5 +1,10 @@
 package controle;
 
+import dao.VendedorDAO;
+import genericdao.impl.VendedorDaoImpl;
+import genericdao.interfaces.IVendedorDao;
+import java.util.List;
+
 import modelo.Cliente;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,25 +19,26 @@ import modelo.Vendedor;
 public class teste {
     
     public static void main(String[] args) {
-
-        Session sessao = HibernateUtil.getSessionFactory().openSession();
-        Transaction transacao = sessao.beginTransaction();
+          
+       VendedorDAO dao = new VendedorDAO();
         
-        Vendedor v = new Vendedor();
-        v.setNome("Daniel");
-        v.setCpf("243243");
+       Vendedor v = new Vendedor("cpf","nome", "senha");
+       Vendedor v2 = new Vendedor("cpff","nogme", "segnha");
+       Vendedor v3 = new Vendedor("cpgf","nofme", "sefnha");
+       
+       dao.save(v);
+       dao.save(v2);
+       dao.save(v3);
+       
+       List<Vendedor> vendedores = dao.listAll();
+       
+       for (Vendedor i : vendedores) {
+            System.out.println(i.getNome());  
+        }
+       
+       
         
-        Cliente c = new Cliente();
-        c.setNome("carlos");
-        c.setCpf("31453445");
-        c.setEndereco("baixa da égua");
-        c.setInformacoes("fkgjsdfogjihdffgjer");
         
-        v.addCliente(c);
-        sessao.saveOrUpdate((Vendedor) v);
-        
-        
-        transacao.commit();
         
     }
 }

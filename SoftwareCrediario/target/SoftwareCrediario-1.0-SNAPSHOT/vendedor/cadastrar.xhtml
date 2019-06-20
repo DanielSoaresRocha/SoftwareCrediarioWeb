@@ -9,26 +9,26 @@
         <ui:composition template="/templates/common.xhtml">
             <ui:define name="content">
                 <div class="conteudo">
-                    <h:form>
+                    <h:form id="frm">
                        <!-- <p:messages /> -->
                        <p:panelGrid style="margin: auto" columns="2">
                             <p:outputLabel value="Nome: " for="nome"  />
-                            <p:inputText id="nome" required="true" requiredMessage="Nome é obrigatório"/>
+                            <p:inputText id="nome" required="true" requiredMessage="Nome é obrigatório" value="#{cadastrar.clienteAtual.nome}"/>
 
                             <p:outputLabel value="Cpf: " for="cpf" />
-                            <p:inputText id="cpf"/>
+                            <p:inputText id="cpf" value="#{cadastrar.clienteAtual.cpf}"/>
 
                             <p:outputLabel value="Endereço: " for="end" />
-                            <p:inputText id="end" required="true" requiredMessage="Endereço é obrigatório"/>
+                            <p:inputText id="end" required="true" requiredMessage="Endereço é obrigatório" value="#{cadastrar.clienteAtual.endereco}"/>
 
                             <p:outputLabel value="Telefone: " for="num"/>
-                            <p:inputText id="num"/>
+                            <p:inputText id="num" value="#{cadastrar.clienteAtual.telefone}"/>
 
                             <p:outputLabel value="Complemento: " for="comp" />
-                            <p:inputText id="comp"/>
+                            <p:inputText id="comp" value="#{cadastrar.clienteAtual.informacoes}"/>
 
                             <p:outputLabel />
-                            <p:commandButton value="Cadastrar" />
+                            <p:commandButton value="Cadastrar" action="#{cadastrar.cadastrar()}" update="frm"/>
 
                         </p:panelGrid>
 

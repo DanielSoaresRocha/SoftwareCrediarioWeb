@@ -12,12 +12,13 @@
                 <p:graphicImage value="/resources/image/crediario2.jpg" />
 
             </div>
-            
-            <div style="background-color:#7FFF70;font-size: 30px;">
-                <p:outputLabel  value="Bem vindo fulano!!" />
-                
-            </div>
-                
+
+            <p:panel rendered="#{sessionScope['vendedor-logado']!=null}" style="background-color:#7FFF70;font-size: 30px;">
+
+                <p:outputLabel value="Bem-vindo, #{sessionScope['vendedor-logado'].getNome()}!!" /> <br/>
+
+            </p:panel>       
+
 
         </ui:composition>	
     </body>

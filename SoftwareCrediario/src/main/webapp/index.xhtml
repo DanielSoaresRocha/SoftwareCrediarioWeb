@@ -13,7 +13,7 @@
     </h:head>
 
     <h:body>
-
+        
         <div class="wrapper fadeInDown">
             <div id="formContent">
                 <!-- Tabs Titles -->
@@ -29,15 +29,14 @@
                     <h:inputText id="login" class="fadeIn second" value="#{login.vendedorAtual.nome}" />         
                     <h:inputText id="password2" class="fadeIn third" value="#{login.vendedorAtual.senha}"/>
                     <p:commandButton class="fadeIn fourth" value="Log In" action="#{login.autentica()}" />
-
+                    <!--<p:messages /> -->
                 </h:form>
-
 
                 <!-- Remind Passowrd -->
                 <div id="formFooter">
                     <a class="underlineHover" href="#">Forgot Password?</a>
                 </div>
-
+                
             </div>
         </div>
         <p:commandButton value="enviar" action="index.xhtml" />
