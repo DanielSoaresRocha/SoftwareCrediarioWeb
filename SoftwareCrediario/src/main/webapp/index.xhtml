@@ -26,9 +26,9 @@
 
                 <!-- Login Form -->
                 <h:form>
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"/>
-                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"/>
-                    <p:commandButton class="fadeIn fourth" value="Log In" action="/vendedor/cadastrar.xhtml" />
+                    <h:inputText id="login" class="fadeIn second" value="#{login.vendedorAtual.nome}" />         
+                    <h:inputText id="password2" class="fadeIn third" value="#{login.vendedorAtual.senha}"/>
+                    <p:commandButton class="fadeIn fourth" value="Log In" action="#{login.autentica()}" />
 
                 </h:form>
 
