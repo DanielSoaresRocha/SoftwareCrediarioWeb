@@ -36,7 +36,8 @@ public class LoginController {
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
                     s.setAttribute("vendedor-logado", vendedorAtual);          
-                   
+                    vendedorAtual = i;//Colocando o vendedor do banco no objeto atual
+                    System.out.println("Id = "+ vendedorAtual.getId());
                     System.out.println("Vendedor Encontrado" +vendedorAtual.getNome());
                     return "/vendedor/cadastrar.xhtml";
                 }

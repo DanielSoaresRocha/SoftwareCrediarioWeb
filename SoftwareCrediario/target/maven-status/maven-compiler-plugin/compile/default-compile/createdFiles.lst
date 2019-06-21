@@ -5,11 +5,13 @@ modelo\Vendedor.class
 persistencia\Conecta.class
 dao\VendedorDAO.class
 genericdao\impl\VendedorDaoImpl.class
+controle\LoginController.class
 genericdao\impl\GenericDaoImpl$2.class
 modelo\Cliente.class
 persistencia\HibernateUtil.class
 genericdao\impl\GenericDaoImpl.class
 dao\ClienteDAO.class
+controle\cadastrarClienteController.class
 genericdao\impl\GenericDaoImpl$1.class
 genericdao\impl\ClienteDaoImpl.class
 genericdao\interfaces\IClienteDao.class
