@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <ui:composition template="/templates/common.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+                    <div style="text-align: center;" class="conteudo">
+
+                        <p:dataTable value="#{administrar.listaClientes}" var="cliente">
+                            <p:column headerText="Nome">
+                                <p:outputLabel value="#{cliente.nome}" />
+                            </p:column>
+
+                            <p:column headerText="cpf">
+                                <p:outputLabel value="#{cliente.cpf}" />
+                            </p:column>
+
+                            <p:column headerText="Endereço">
+                                <p:outputLabel value="#{cliente.endereco}" />
+                            </p:column>
+
+                            <p:column headerText="Informações">
+                                <p:outputLabel value="#{cliente.informacoes}" />
+                            </p:column>
+                            
+                            <p:column headerText="Realizar Venda">
+                                <p:commandButton value="venda"/>
+                            </p:column>
+                            
+                            <p:column headerText="Editar">
+                                <p:commandButton value="editar"/>
+                            </p:column>                                                       
+                            
+                            <p:column headerText="Excluir">
+                                <p:commandButton value="ação"/>
+                            </p:column>
+                                   
+
+                        </p:dataTable>
+
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

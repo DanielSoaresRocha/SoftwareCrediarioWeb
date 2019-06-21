@@ -2,7 +2,9 @@ package controle;
 
 import dao.CredencialDAO;
 import dao.VendedorDAO;
+import genericdao.impl.ClienteDaoImpl;
 import genericdao.impl.VendedorDaoImpl;
+import genericdao.interfaces.IClienteDao;
 import genericdao.interfaces.IVendedorDao;
 import java.util.List;
 
@@ -36,7 +38,13 @@ public class teste {
         CredencialDAO daoC = new CredencialDAO();
         daoC.save(c); 
         
+        IClienteDao d = new ClienteDaoImpl();
+        Cliente c1 = new Cliente();
+        c1.setNome("fasdf");
         
-        //
+        d.save(c1);
+        
+        
+        
     }
 }

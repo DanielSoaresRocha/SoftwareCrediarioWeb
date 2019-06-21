@@ -2,6 +2,8 @@ package controle;
 
 import dao.CredencialDAO;
 import dao.VendedorDAO;
+import genericdao.impl.CredencialDaoImpl;
+import genericdao.interfaces.ICredencialDao;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -30,21 +32,19 @@ public class LoginController {
     public String autentica() {
         FacesContext context = FacesContext.getCurrentInstance();
 
-        //VendedorDAO dao = new VendedorDAO();
-        //List<Vendedor> vendedores = dao.listAll();
         CredencialDAO dao = new CredencialDAO();
         List<Credencial> credenciais = dao.listAll();
+        //ICredencialDao dao = new CredencialDaoImpl();
+        
 
         for (Credencial i : credenciais) {
             if (i.getLogin().equals(login)) {
                 if (i.getSenha().equals(senha)) {
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
-                    s.setAttribute("vendedor-logado", vendedorAtual);  
-                    
-                    
                     vendedorAtual = i.getVendedor();//Colocando o vendedor do banco no objeto atual
-                    
+                    s.setAttribute("vendedor-logado", vendedorAtual);  
+                                                    
                     System.out.println("Id = "+ vendedorAtual.getId());
                     System.out.println("Vendedor Encontrado" +vendedorAtual.getNome());
                     return "/vendedor/cadastrar.xhtml";
