@@ -1,5 +1,6 @@
 package controle;
 
+import dao.CredencialDAO;
 import dao.VendedorDAO;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -12,13 +13,15 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import modelo.Vendedor;
+import modelo.*;
 
 @ManagedBean(name = "login")
 @SessionScoped
 public class LoginController {
 
     private Vendedor vendedorAtual;
+    private String login;
+    private String senha;
 
     public LoginController() {
         vendedorAtual = new Vendedor();
@@ -27,16 +30,21 @@ public class LoginController {
     public String autentica() {
         FacesContext context = FacesContext.getCurrentInstance();
 
-        VendedorDAO dao = new VendedorDAO();
-        List<Vendedor> vendedores = dao.listAll();
+        //VendedorDAO dao = new VendedorDAO();
+        //List<Vendedor> vendedores = dao.listAll();
+        CredencialDAO dao = new CredencialDAO();
+        List<Credencial> credenciais = dao.listAll();
 
-        for (Vendedor i : vendedores) {
-            if (i.getNome().equals(vendedorAtual.getNome())) {
-                if (i.getSenha().equals(vendedorAtual.getSenha())) {
+        for (Credencial i : credenciais) {
+            if (i.getLogin().equals(login)) {
+                if (i.getSenha().equals(senha)) {
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
-                    s.setAttribute("vendedor-logado", vendedorAtual);          
-                    vendedorAtual = i;//Colocando o vendedor do banco no objeto atual
+                    s.setAttribute("vendedor-logado", vendedorAtual);  
+                    
+                    
+                    vendedorAtual = i.getVendedor();//Colocando o vendedor do banco no objeto atual
+                    
                     System.out.println("Id = "+ vendedorAtual.getId());
                     System.out.println("Vendedor Encontrado" +vendedorAtual.getNome());
                     return "/vendedor/cadastrar.xhtml";
@@ -50,6 +58,40 @@ public class LoginController {
         context.addMessage(null, mensagem);
         return null;
         
+    }
+    
+    public void criarVendedor(){
+        //Adicionando credencial
+        VendedorDAO daoV = new VendedorDAO();
+        Vendedor v = new Vendedor();
+        v.setNome("Daniel Soares Rocha");
+        v.setCpf("3452345");
+        daoV.save(v);
+        
+        Credencial c = new Credencial();
+        c.setLogin("Daniel");
+        c.setSenha("admin");
+        c.setVendedor(v);
+        
+        CredencialDAO daoC = new CredencialDAO();
+        daoC.save(c); 
+        
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public Vendedor getVendedorAtual() {

@@ -13,7 +13,7 @@
     </h:head>
 
     <h:body>
-        
+        #{login.criarVendedor()}
         <div class="wrapper fadeInDown">
             <div id="formContent">
                 <!-- Tabs Titles -->
@@ -26,8 +26,8 @@
 
                 <!-- Login Form -->
                 <h:form>
-                    <h:inputText id="login" class="fadeIn second" value="#{login.vendedorAtual.nome}" />         
-                    <h:inputText id="password2" class="fadeIn third" value="#{login.vendedorAtual.senha}"/>
+                    <h:inputText id="login" class="fadeIn second" value="#{login.login}" />         
+                    <h:inputText id="password2" class="fadeIn third" value="#{login.senha}"/>
                     <p:commandButton class="fadeIn fourth" value="Log In" action="#{login.autentica()}" />
                     <!--<p:messages /> -->
                 </h:form>

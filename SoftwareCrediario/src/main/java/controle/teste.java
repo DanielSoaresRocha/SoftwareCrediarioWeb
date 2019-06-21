@@ -1,11 +1,13 @@
 package controle;
 
+import dao.CredencialDAO;
 import dao.VendedorDAO;
 import genericdao.impl.VendedorDaoImpl;
 import genericdao.interfaces.IVendedorDao;
 import java.util.List;
 
 import modelo.Cliente;
+import modelo.Credencial;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,26 +21,22 @@ import modelo.Vendedor;
 public class teste {
     
     public static void main(String[] args) {
-          
-       VendedorDAO dao = new VendedorDAO();
+        //Adicionar credencial avendedor         
+        VendedorDAO daoV = new VendedorDAO();
+        Vendedor v = new Vendedor();
+        v.setNome("Daniel Soares Rocha");
+        v.setCpf("3452345");
+        daoV.save(v);
         
-       Vendedor v = new Vendedor("cpf","nome", "senha");
-       Vendedor v2 = new Vendedor("cpff","nogme", "segnha");
-       Vendedor v3 = new Vendedor("cpgf","nofme", "sefnha");
-       
-       dao.save(v);
-       dao.save(v2);
-       dao.save(v3);
-       
-       List<Vendedor> vendedores = dao.listAll();
-       
-       for (Vendedor i : vendedores) {
-            System.out.println(i.getNome());  
-        }
-       
-       
+        Credencial c = new Credencial();
+        c.setLogin("Daniel");
+        c.setSenha("admin");
+        c.setVendedor(v);
+        
+        CredencialDAO daoC = new CredencialDAO();
+        daoC.save(c); 
         
         
-        
+        //
     }
 }

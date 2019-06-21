@@ -5,7 +5,6 @@ import javax.faces.bean.ManagedBean;
 import modelo.Cliente;
 import modelo.Vendedor;
 
-
 import dao.ClienteDAO;
 import dao.VendedorDAO;
 import javax.faces.bean.ManagedProperty;
@@ -27,10 +26,10 @@ public class cadastrarClienteController {
     }
 
     public void cadastrar(){
-        System.out.println("CHEGOUUUUUUUUUUUUU");
         ClienteDAO daoCliente = new ClienteDAO(); //preparando dao cliente
         daoCliente.save(clienteAtual); //adiciona o cliente no banco               
         
+        clienteAtual = new Cliente();
     }
 
     public LoginController getVendedorAtual() {

@@ -3,7 +3,11 @@ C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\genericdao\interfaces\IGenericDao.java
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\dao\ClienteDAO.java
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\genericdao\impl\ClienteDaoImpl.java
+C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\genericdao\interfaces\ICredencialDao.java
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\dao\VendedorDAO.java
+C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\genericdao\impl\CredencialDaoImpl.java
+C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\dao\CredencialDAO.java
+C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\modelo\Credencial.java
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\controle\cadastrarClienteController.java
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\modelo\Vendedor.java
 C:\Users\Aluno\Documents\NetBeansProjects\SoftwareCrediarioWeb\SoftwareCrediario\src\main\java\persistencia\Conecta.java

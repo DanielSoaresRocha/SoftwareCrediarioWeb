@@ -1,3 +1,4 @@
+dao\CredencialDAO.class
 controle\teste.class
 controle\teste2.class
 genericdao\interfaces\IVendedorDao.class
@@ -8,11 +9,14 @@ genericdao\impl\VendedorDaoImpl.class
 controle\LoginController.class
 genericdao\impl\GenericDaoImpl$2.class
 modelo\Cliente.class
+modelo\Credencial.class
 persistencia\HibernateUtil.class
 genericdao\impl\GenericDaoImpl.class
 dao\ClienteDAO.class
 controle\cadastrarClienteController.class
 genericdao\impl\GenericDaoImpl$1.class
 genericdao\impl\ClienteDaoImpl.class
+genericdao\interfaces\ICredencialDao.class
+genericdao\impl\CredencialDaoImpl.class
 genericdao\interfaces\IClienteDao.class
 genericdao\interfaces\IGenericDao.class

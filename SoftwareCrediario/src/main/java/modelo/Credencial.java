@@ -18,9 +18,16 @@ public class Credencial implements Serializable {
     @Column(name = "senha")
     private String senha;
 
-    @OneToOne(mappedBy = "credencial"/*, orphanRemoval=true*/)
+    @OneToOne//(mappedBy = "credencial"/*, orphanRemoval=true*/)
+    @JoinColumn(name="vendedor_id")
     private Vendedor vendedor;
 
+    public Credencial() {
+    }
+
+   
+
+    
     public Vendedor getVendedor() {
         return vendedor;
     }
