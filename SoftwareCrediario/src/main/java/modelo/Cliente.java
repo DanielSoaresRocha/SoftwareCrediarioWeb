@@ -29,9 +29,7 @@ public class Cliente implements Serializable{
     
     @Column(name= "informacoes")
     private String informacoes;
-    
-    @ManyToMany(mappedBy="clientes")
-    private List<Vendedor> vendedores = new ArrayList<>();
+
 
     public Cliente() {
     }
@@ -44,13 +42,7 @@ public class Cliente implements Serializable{
         this.informacoes = informacoes;
     }
 
-    public List<Vendedor> getVendedores() {
-        return vendedores;
-    }
-
-    public void setVendedores(List<Vendedor> vendedores) {
-        this.vendedores = vendedores;
-    }
+   
 
     
     

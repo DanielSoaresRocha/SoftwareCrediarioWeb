@@ -29,14 +29,7 @@ public class cadastrarClienteController {
     public void cadastrar(){
         System.out.println("CHEGOUUUUUUUUUUUUU");
         ClienteDAO daoCliente = new ClienteDAO(); //preparando dao cliente
-        daoCliente.save(clienteAtual); //adiciona o cliente no banco
-        
-        VendedorDAO daoVendedor = new VendedorDAO(); //preparando dao vendedor
-        Vendedor v = vendedorAtual.getVendedorAtual(); //pegar venderdor
-        System.out.println("Id do vendedor atual ="+ v.getId());
-        v.addCliente(clienteAtual); //adicionar este cliente no vendedor
-        daoVendedor.save(v); //salvar vendedor
-        
+        daoCliente.save(clienteAtual); //adiciona o cliente no banco               
         
     }
 

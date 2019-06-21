@@ -6,8 +6,8 @@ import persistencia.HibernateUtil;
 import modelo.*;
 
 public class teste2 {
-
     public static void main(String[] args) {
+/*
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         Transaction transacao = sessao.beginTransaction();
 
@@ -20,6 +20,6 @@ public class teste2 {
         v.addCliente(c);
         sessao.update(v);
         
-        transacao.commit();
+        transacao.commit();*/
     }
 }

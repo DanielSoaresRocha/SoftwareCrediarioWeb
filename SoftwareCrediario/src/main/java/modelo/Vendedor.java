@@ -1,8 +1,6 @@
 package modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -22,23 +20,12 @@ public class Vendedor implements Serializable {
 
     @Column(name = "senha")
     private String senha;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "vendedor_cliente", joinColumns = {
-        @JoinColumn(name = "vendedor_id",
-                referencedColumnName = "id_Vendedor")}, inverseJoinColumns = {
-        @JoinColumn(name = "cliente_id")})
-    private List<Cliente> clientes = new ArrayList<>();
-
-    public void addCliente(Cliente nCliente) {
-        clientes.add(nCliente);
-        nCliente.getVendedores().add(this);
-    }
-
-    public void removeCliente(Cliente nCliente) {
-        clientes.remove(nCliente);
-        nCliente.getVendedores().remove(this);
-    }
+    
+    
+    @OneToOne
+    /*(cascade = {CascadeType.ALL}, orphanRemoval = true)*/
+    @JoinColumn(name = "credencial_id")
+    private Credencial credencial;
 
     public Vendedor() {
     }
@@ -49,13 +36,14 @@ public class Vendedor implements Serializable {
         this.senha = senha;
     }
 
-    public List<Cliente> getClientes() {
-        return clientes;
+    public Credencial getCredencial() {
+        return credencial;
     }
 
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+    public void setCredencial(Credencial credencial) {
+        this.credencial = credencial;
     }
+
 
     public String getSenha() {
         return senha;
