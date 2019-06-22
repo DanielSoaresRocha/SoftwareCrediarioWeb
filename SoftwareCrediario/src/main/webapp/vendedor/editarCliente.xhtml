@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:body>
+        <ui:composition template="/templates/common.xhtml">
+            <ui:define name="content">
+                <div class="conteudo">
+                    <h:form id="frm">
+                       <!-- <p:messages /> -->
+                       <p:panelGrid style="margin: auto" columns="2">
+                            <p:outputLabel value="Nome: " for="nome" />
+                            <p:inputText id="nome" required="true" requiredMessage="Nome é obrigatório" value="#{administrar.clienteAtual.nome}"/>
+
+                            <p:outputLabel value="Cpf: " for="cpf" />
+                            <p:inputText id="cpf" value="#{administrar.clienteAtual.cpf}"/>
+
+                            <p:outputLabel value="Endereço: " for="end" />
+                            <p:inputText id="end" required="true" requiredMessage="Endereço é obrigatório" value="#{administrar.clienteAtual.endereco}"/>
+
+                            <p:outputLabel value="Telefone: " for="num"/>
+                            <p:inputText id="num" value="#{administrar.clienteAtual.telefone}"/>
+
+                            <p:outputLabel value="Complemento: " for="comp" />
+                            <p:inputText id="comp" value="#{administrar.clienteAtual.informacoes}"/>
+
+                            <p:outputLabel />
+                            <p:commandButton value="Salvar" action="#{administrar.salvar()}" update="frm"/>
+
+                        </p:panelGrid>
+
+                    </h:form>
+                </div>
+                
+            </ui:define>
+            
+        </ui:composition>
+    </h:body>
+</html>
+
