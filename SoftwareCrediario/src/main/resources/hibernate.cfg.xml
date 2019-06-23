@@ -29,8 +29,8 @@
         <mapping class="modelo.Vendedor"/>
         <mapping class="modelo.Cliente"/>
         <mapping class="modelo.Credencial"/>
+        <mapping class="modelo.Venda"/>      
 	<!--
-        <mapping class="model.Pedido"/>      
         <mapping class="model.Categoria"/>
         <mapping class="model.Produto"/>
 	-->
