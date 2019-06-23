@@ -42,14 +42,13 @@ public class teste {
 
         CredencialDAO daoC = new CredencialDAO();
         daoC.save(c);
-        /*
+        
         IClienteDao d = new ClienteDaoImpl();
         Cliente c1 = new Cliente();
-        c1.setNome("fasdf");
+        c1.setNome("cliente1");
+        d.save(c1);
         
-        d.save(c1);*/
         //------------------Adicionando venda no vendedor
-        VendaDAO daoVenda = new VendaDAO();
 
 
         java.util.Date dataUtil = new java.util.Date("28/04/2000");
@@ -62,7 +61,9 @@ public class teste {
         venda.setNumParcelas(30);
         venda.setData(dataSql);
         //daoVenda.save(venda);
-
+      
+        c1.addVenda(venda);
+        
         v.addVenda(venda);
         daoV.save(v);
 

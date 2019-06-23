@@ -15,6 +15,20 @@ public class Cliente implements Serializable{
     @Column(name= "id_cliente")
     private int id;
     
+    @OneToMany(mappedBy="cliente", fetch = FetchType.LAZY, orphanRemoval=true, cascade = CascadeType.ALL)
+        private List<Venda> vendas = new ArrayList<>();
+	
+	
+	public void addVenda(Venda novaVenda){
+		vendas.add(novaVenda);
+		novaVenda.setCliente(this);
+	}
+	
+	public void removeVenda(Venda removeVenda){
+		vendas.remove(removeVenda);
+		removeVenda.setCliente(null);
+	}
+    
     @Column(name= "nome")
     private String nome;
     
@@ -40,6 +54,14 @@ public class Cliente implements Serializable{
         this.endereco = endereco;
         this.telefone = telefone;
         this.informacoes = informacoes;
+    }
+
+    public List<Venda> getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(List<Venda> vendas) {
+        this.vendas = vendas;
     }
 
    

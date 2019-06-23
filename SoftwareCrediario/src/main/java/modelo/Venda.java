@@ -18,7 +18,18 @@ public class Venda implements Serializable {
      @ManyToMany(mappedBy = "vendas")
     private List<Vendedor> vendedores = new ArrayList<>();
     
-    
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+
+    private Cliente cliente;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
     @Column(name = "nome_venda")
     private String nome;
 
