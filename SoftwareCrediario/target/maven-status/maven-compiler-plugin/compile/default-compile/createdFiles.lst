@@ -13,6 +13,7 @@ genericdao\impl\ClienteDaoImpl.class
 genericdao\interfaces\IClienteDao.class
 genericdao\interfaces\IGenericDao.class
 dao\CredencialDAO.class
+controle\RealizarVendaController.class
 dao\VendaDAO.class
 controle\teste2.class
 genericdao\interfaces\IVendedorDao.class

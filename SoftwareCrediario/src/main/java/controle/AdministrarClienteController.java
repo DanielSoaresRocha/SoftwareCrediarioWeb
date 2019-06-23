@@ -29,6 +29,7 @@ public class AdministrarClienteController {
     public String realizarVenda(Cliente c){
         clienteAtual = new Cliente();
         clienteAtual = c;
+        
         System.out.println("QUERENDO VENDER PARA: "+ clienteAtual.getId());
         return "/vendedor/realizarVenda";
         
