@@ -9,10 +9,10 @@
         <ui:composition template="/templates/common.xhtml">
             <ui:define name="content">
 
-                <h:form>
+                <h:form id="form">
                     <div style="text-align: center;" class="conteudo">
 
-                        <p:dataTable value="#{administrar.listaClientes}" var="cliente">
+                        <p:dataTable id="data" value="#{administrar.listaClientes}" var="cliente">
                             <p:column headerText="Nome">
                                 <p:outputLabel value="#{cliente.nome}" />
                             </p:column>
@@ -34,11 +34,11 @@
                             </p:column>
                             
                             <p:column headerText="Editar">
-                                <p:commandButton value="editar" action="#{administrar.editarCliente(cliente)}"/>
+                                <p:commandButton value="editar" action="#{administrar.editarCliente(cliente)}" update="form"/>
                             </p:column>                                                       
                             
                             <p:column headerText="Excluir">
-                                <p:commandButton value="ação"/>
+                                <p:commandButton value="excluir" action="#{administrar.excluirCliente(cliente)}" update="@all"/>
                             </p:column>
                                    
 

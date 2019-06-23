@@ -8,45 +8,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 @ManagedBean(name = "administrar")
-@RequestScoped
 public class AdministrarClienteController {
     private List<Cliente> listaClientes;
     private ClienteDAO dao;
     private Cliente clienteAtual;
-    
-    @ManagedProperty(value = "#{cadastrar}")
-    private cadastrarClienteController selecionado;
 
     public AdministrarClienteController() {
+        System.out.println("ENNNTTRROUUUUUUUUUUUUUUUUUUUUUUU");
         listaClientes = new ArrayList<>();
+        clienteAtual = new Cliente();
         
         dao = new ClienteDAO();
         listaClientes = dao.listAll();
         
         
     }    
+    public String excluirCliente(Cliente c){
+        dao.delete(c);
+        
+        return "/vendedor/Administrar.xhtml";
+    }
     
     public String editarCliente(Cliente c){
-        clienteAtual = new Cliente();
         clienteAtual = c;
         return "/vendedor/editarCliente.xhtml";
     }
     public String salvar(){
         dao.save(clienteAtual);
+        System.out.println("cliente salvo id ="+ clienteAtual.getId());
        
         return "/vendedor/Administrar.xhtml";
-    }
-
-    public cadastrarClienteController getSelecionado() {
-        return selecionado;
-    }
-
-    public void setSelecionado(cadastrarClienteController selecionado) {
-        this.selecionado = selecionado;
     }
 
     public Cliente getClienteAtual() {
