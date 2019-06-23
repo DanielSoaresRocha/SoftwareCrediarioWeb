@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -29,6 +30,9 @@ public class Venda implements Serializable {
 
     @Column(name = "valor_parcelas")
     private Double valorParcelas;
+    
+    @Column(name = "data_venda")
+    private Date data;
 
     public int getId() {
         return id;
@@ -38,6 +42,15 @@ public class Venda implements Serializable {
         this.id = id;
     }
 
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    
     public List<Vendedor> getVendedores() {
         return vendedores;
     }
