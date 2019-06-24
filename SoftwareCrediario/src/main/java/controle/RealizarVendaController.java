@@ -4,6 +4,7 @@ import dao.ClienteDAO;
 import dao.VendedorDAO;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import modelo.Venda;
 import modelo.Vendedor;
 
 @ManagedBean(name = "venda")
+@SessionScoped
 public class RealizarVendaController {
 
     private Venda vendaAtual = new Venda();

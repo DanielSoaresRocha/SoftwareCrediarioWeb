@@ -9,20 +9,22 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "administrar")
+@SessionScoped
 public class AdministrarClienteController {
-    private List<Cliente> listaClientes;
+    private List<Cliente> listaClientes = new ArrayList<>();;
     private ClienteDAO dao;
     private Cliente clienteAtual = new Cliente();
 
     public AdministrarClienteController() {
         System.out.println("ENNNTTRROUUUUUUUUUUUUUUUUUUUUUUU");
-        listaClientes = new ArrayList<>();
+        //listaClientes = new ArrayList<>();
         //clienteAtual = new Cliente();
         
-        dao = new ClienteDAO();
-        listaClientes = dao.listAll();
+        //dao = new ClienteDAO();
+        //listaClientes = dao.listAll();
         
         
     }    
@@ -36,6 +38,8 @@ public class AdministrarClienteController {
     }
     
     public String excluirCliente(Cliente c){
+        dao = new ClienteDAO();
+        
         dao.delete(c);
         
         return "/vendedor/Administrar.xhtml";

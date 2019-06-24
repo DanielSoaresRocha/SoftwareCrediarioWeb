@@ -15,7 +15,7 @@ public class Cliente implements Serializable{
     @Column(name= "id_cliente")
     private int id;
     
-    @OneToMany(mappedBy="cliente", fetch = FetchType.LAZY, orphanRemoval=true, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="cliente", /*fetch = FetchType.EAGER,*/ orphanRemoval=true, cascade = CascadeType.ALL)
         private List<Venda> vendas = new ArrayList<>();
 	
 	

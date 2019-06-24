@@ -20,18 +20,30 @@ public class cadastrarClienteController {
     @ManagedProperty(value = "#{login}")
     private LoginController vendedorAtual;
     
-
+    @ManagedProperty(value = "#{administrar}")
+    private AdministrarClienteController lista;
+    
     public cadastrarClienteController() {
         clienteAtual = new Cliente();
     }
 
     public void cadastrar(){
+        lista.getListaClientes().add(clienteAtual);
         ClienteDAO daoCliente = new ClienteDAO(); //preparando dao cliente
         daoCliente.save(clienteAtual); //adiciona o cliente no banco               
         
         clienteAtual = new Cliente();
     }
 
+    public AdministrarClienteController getLista() {
+        return lista;
+    }
+
+    public void setLista(AdministrarClienteController lista) {
+        this.lista = lista;
+    }
+
+    
     public LoginController getVendedorAtual() {
         return vendedorAtual;
     }
