@@ -7,14 +7,14 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cliente")
+@Table(name = "clientes")
 public class Cliente implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id_cliente")
     private int id;
-   /* 
+    /*
     @OneToMany(mappedBy="cliente", fetch = FetchType.LAZY, orphanRemoval=true, cascade = CascadeType.ALL)
         private List<Venda> vendas = new ArrayList<>();
 	
@@ -27,8 +27,8 @@ public class Cliente implements Serializable{
 	public void removeVenda(Venda removeVenda){
 		vendas.remove(removeVenda);
 		removeVenda.setCliente(null);
-	}
-    */
+	}*/
+    
     @Column(name= "nome")
     private String nome;
     
@@ -55,7 +55,7 @@ public class Cliente implements Serializable{
         this.telefone = telefone;
         this.informacoes = informacoes;
     }
-/*
+    /*
     public List<Venda> getVendas() {
         return vendas;
     }

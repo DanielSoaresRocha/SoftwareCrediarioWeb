@@ -62,7 +62,7 @@ public class teste {
         venda.setData(dataSql);
         //daoVenda.save(venda);
       
-        c1.addVenda(venda);
+        //c1.addVenda(venda);
         
         v.addVenda(venda);
         daoV.save(v);
