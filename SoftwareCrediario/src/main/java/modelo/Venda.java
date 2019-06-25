@@ -20,7 +20,6 @@ public class Venda implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-
     private Cliente cliente;
 
     public Cliente getCliente() {

@@ -14,7 +14,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "administrar")
 @SessionScoped
 public class AdministrarClienteController {
-    private List<Cliente> listaClientes = new ArrayList<>();;
+    private List<Cliente> listaClientes = new ArrayList<>();
     private ClienteDAO dao;
     private Cliente clienteAtual = new Cliente();
 
@@ -28,6 +28,13 @@ public class AdministrarClienteController {
         
         
     }    
+    
+    public void listar(){
+        System.out.println("-----------------------Listou----------------");
+        listaClientes = new ArrayList<>();
+        dao = new ClienteDAO();
+        listaClientes = dao.listAll();
+    }
     public String realizarVenda(Cliente c){
         clienteAtual = new Cliente();
         clienteAtual = c;

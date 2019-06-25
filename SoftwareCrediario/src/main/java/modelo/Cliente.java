@@ -14,8 +14,8 @@ public class Cliente implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id_cliente")
     private int id;
-    
-    @OneToMany(mappedBy="cliente", /*fetch = FetchType.EAGER,*/ orphanRemoval=true, cascade = CascadeType.ALL)
+   /* 
+    @OneToMany(mappedBy="cliente", fetch = FetchType.LAZY, orphanRemoval=true, cascade = CascadeType.ALL)
         private List<Venda> vendas = new ArrayList<>();
 	
 	
@@ -28,7 +28,7 @@ public class Cliente implements Serializable{
 		vendas.remove(removeVenda);
 		removeVenda.setCliente(null);
 	}
-    
+    */
     @Column(name= "nome")
     private String nome;
     
@@ -55,14 +55,14 @@ public class Cliente implements Serializable{
         this.telefone = telefone;
         this.informacoes = informacoes;
     }
-
+/*
     public List<Venda> getVendas() {
         return vendas;
     }
 
     public void setVendas(List<Venda> vendas) {
         this.vendas = vendas;
-    }
+    }*/
 
    
 

@@ -14,7 +14,7 @@ public class Vendedor implements Serializable {
     @Column(name = "id_Vendedor")
     private int id;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "vendedores_vendas", joinColumns = {
         @JoinColumn(name = "vendedor_id",
                 referencedColumnName = "id_vendedor")}, inverseJoinColumns = {

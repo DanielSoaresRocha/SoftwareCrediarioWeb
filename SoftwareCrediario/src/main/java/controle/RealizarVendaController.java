@@ -22,8 +22,7 @@ public class RealizarVendaController {
     private AdministrarClienteController clienteAtual;
 
     public String realizarVenda() {
-        //tentando adicionar venda em vendedor - relaão N pra N
-        VendedorDAO daoV = new VendedorDAO();
+        //tentando adicionar venda em vendedor - relação N pra N
         FacesContext context = FacesContext.getCurrentInstance();
 
         ExternalContext ec = context.getExternalContext();
@@ -31,6 +30,7 @@ public class RealizarVendaController {
         Vendedor vendedor = (Vendedor) s.getAttribute("vendedor-logado"); // pegando vendedor na sessão
         
         
+        VendedorDAO daoV = new VendedorDAO();
         vendedor.addVenda(vendaAtual); //adicionando venda
         daoV.save(vendedor); //salvando no banco
         
