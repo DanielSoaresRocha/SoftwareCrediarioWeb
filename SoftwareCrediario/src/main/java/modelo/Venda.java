@@ -15,20 +15,25 @@ public class Venda implements Serializable {
     @Column(name = "id_venda")
     private int id;
 
-     @ManyToMany(mappedBy = "vendas")
+    @ManyToMany(mappedBy = "vendas")
     private List<Vendedor> vendedores = new ArrayList<>();
     
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private Cliente cliente;*/
 
+    public Venda() {
+    }
+    
+    
+/*
     public Cliente getCliente() {
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
+    }*/
     @Column(name = "nome_venda")
     private String nome;
 

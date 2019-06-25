@@ -1,6 +1,7 @@
 package controle;
 
 import dao.ClienteDAO;
+import dao.VendaDAO;
 import dao.VendedorDAO;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -16,25 +17,36 @@ import modelo.Vendedor;
 @SessionScoped
 public class RealizarVendaController {
 
-    private Venda vendaAtual = new Venda();
+    private Venda vendaAtual;
 
     @ManagedProperty(value = "#{administrar}")
     private AdministrarClienteController clienteAtual;
 
+    public RealizarVendaController() {
+        vendaAtual = new Venda();
+    }
+    
+    
+
     public String realizarVenda() {
         //tentando adicionar venda em vendedor - relação N pra N
+        System.out.println("Id venda = "+ vendaAtual.getId()+ "Nome = "+ vendaAtual.getNome());
         FacesContext context = FacesContext.getCurrentInstance();
 
         ExternalContext ec = context.getExternalContext();
         HttpSession s = (HttpSession) ec.getSession(true);
         Vendedor vendedor = (Vendedor) s.getAttribute("vendedor-logado"); // pegando vendedor na sessão
+        System.out.println("Id vendedor = "+vendedor.getId()+ " Nome= " + vendedor.getNome());
         
+        //VendaDAO venda= new VendaDAO();
+        //venda.save(vendaAtual);
         
         VendedorDAO daoV = new VendedorDAO();
         vendedor.addVenda(vendaAtual); //adicionando venda
         daoV.save(vendedor); //salvando no banco
         
-        //CLIENTE CHEGANDO NULL - SEM FUNCIONAR
+        vendaAtual = new Venda();
+        
         /*
         
         ClienteDAO daoC = new ClienteDAO(); // prepara DAO cliente

@@ -3,12 +3,14 @@ package modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "vendedor")
 public class Vendedor implements Serializable {
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Vendedor")
@@ -71,5 +73,6 @@ public class Vendedor implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+      
 
 }

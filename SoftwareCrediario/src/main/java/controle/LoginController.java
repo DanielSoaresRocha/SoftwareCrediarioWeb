@@ -10,7 +10,6 @@ import javax.faces.bean.SessionScoped;
 
 import javax.faces.application.FacesMessage;
 
-
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -35,7 +34,6 @@ public class LoginController {
         CredencialDAO dao = new CredencialDAO();
         List<Credencial> credenciais = dao.listAll();
         //ICredencialDao dao = new CredencialDaoImpl();
-        
 
         for (Credencial i : credenciais) {
             if (i.getLogin().equals(login)) {
@@ -43,39 +41,48 @@ public class LoginController {
                     ExternalContext ec = context.getExternalContext();
                     HttpSession s = (HttpSession) ec.getSession(true);
                     vendedorAtual = i.getVendedor();//Colocando o vendedor do banco no objeto atual
-                    s.setAttribute("vendedor-logado", vendedorAtual);  
-                                                    
-                    System.out.println("Id = "+ vendedorAtual.getId());
-                    System.out.println("Vendedor Encontrado" +vendedorAtual.getNome());
+                    s.setAttribute("vendedor-logado", vendedorAtual);
+
+                    System.out.println("Id = " + vendedorAtual.getId());
+                    System.out.println("Vendedor Encontrado" + vendedorAtual.getNome());                   
                     return "/vendedor/cadastrar.xhtml";
                 }
             }
         }
-        
+
         System.out.println("Vendedor não encontrado");
         FacesMessage mensagem = new FacesMessage("Usuario/senha invalidos!");
         mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
         context.addMessage(null, mensagem);
         return null;
-        
+
     }
-    
-    public void criarVendedor(){
+
+    public String sair() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ec = context.getExternalContext();
+        HttpSession s = (HttpSession) ec.getSession(true);
+        s.invalidate();
+
+        return "/index?faces-redirect=true";
+    }
+
+    public void criarVendedor() {
         //Adicionando credencial
         VendedorDAO daoV = new VendedorDAO();
         Vendedor v = new Vendedor();
         v.setNome("Daniel Soares Rocha");
         v.setCpf("3452345");
         daoV.save(v);
-        
+
         Credencial c = new Credencial();
         c.setLogin("Daniel");
         c.setSenha("admin");
         c.setVendedor(v);
-        
+
         CredencialDAO daoC = new CredencialDAO();
-        daoC.save(c); 
-        
+        daoC.save(c);
+
     }
 
     public String getLogin() {
