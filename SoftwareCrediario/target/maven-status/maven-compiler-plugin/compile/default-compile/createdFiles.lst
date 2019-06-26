@@ -17,7 +17,6 @@ controle\RealizarVendaController.class
 dao\VendaDAO.class
 controle\teste2.class
 genericdao\interfaces\IVendedorDao.class
-controle\EditarVendaController.class
 dao\VendedorDAO.class
 genericdao\impl\VendedorDaoImpl.class
 controle\PendenciasController.class

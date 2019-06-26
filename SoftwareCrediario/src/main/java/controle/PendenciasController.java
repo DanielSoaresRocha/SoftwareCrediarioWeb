@@ -30,6 +30,14 @@ public class PendenciasController {
         return "/vendedor/editarVenda.xhtml";
     }
     
+    public String salvar(){       
+        
+        vendaDAO = new VendaDAO();
+        vendaDAO.save(vendaAtual);     
+        
+        return "/vendedor/Pendencias.xhtml";
+    }
+    
     public void deletar(Venda c){
         vendaDAO = new VendaDAO();
         vendaDAO.delete(c);
