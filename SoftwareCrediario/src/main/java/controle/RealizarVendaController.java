@@ -31,30 +31,30 @@ public class RealizarVendaController {
     }
 
     public String realizarVenda() {
-        //tentando adicionar venda em vendedor - relação N pra N
-        System.out.println("Id venda = " + vendaAtual.getId() + "Nome = " + vendaAtual.getNome());
+        //tentando adicionar venda em vendedor - relação N pra N     
         Vendedor vendedor = vendedorAtual.getVendedorAtual();
-        System.out.println("Id vendedor = " + vendedor.getId() + " nome = "+ vendedor.getNome());
-        VendaDAO venda= new VendaDAO();
-        venda.save(vendaAtual);
+        
+        //VendaDAO venda= new VendaDAO();
+        //venda.save(vendaAtual);
 
         VendedorDAO daoV = new VendedorDAO();
         vendedor.addVenda(vendaAtual); //adicionando venda
         daoV.save(vendedor); //salvando no banco
         
-        vendaAtual = new Venda();
+        
 
-        //s.setAttribute("vendedor-logado", vendedor); //Adicionando novamente a sessão
-
-        //vendaAtual = new Venda();
+        
+        System.out.println("TENTANDO INSERIR VENDAS EM CLINTE");
+        //ClienteDAO daoC = new ClienteDAO(); // prepara DAO cliente
+        
+        Cliente c = clienteAtual.getClienteAtual(); //recebe cliente escolhido
         /*
-        ClienteDAO daoC = new ClienteDAO(); // prepara DAO cliente
-        Cliente c = new Cliente();
-        c = clienteAtual.getClienteAtual(); //recebe cliente escolhido
         c.addVenda(vendaAtual); //adiciona venda no 1 pra N
         
-        daoC.save(c); //salva cliente no banco
-         */
+        System.out.println("Id = "+ c.getId()+ " Nome = "+ c.getNome());
+       // daoC.save(c); //salva cliente no banco*/
+         
+        vendaAtual = new Venda();
         return "/vendedor/Administrar.xhtml";
 
     }
