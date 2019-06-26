@@ -41,6 +41,8 @@ public class RealizarVendaController {
         VendedorDAO daoV = new VendedorDAO();
         vendedor.addVenda(vendaAtual); //adicionando venda
         daoV.save(vendedor); //salvando no banco
+        
+        vendaAtual = new Venda();
 
         //s.setAttribute("vendedor-logado", vendedor); //Adicionando novamente a sessão
 
