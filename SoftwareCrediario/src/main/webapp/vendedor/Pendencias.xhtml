@@ -43,11 +43,11 @@
                             </p:column>
                             
                             <p:column headerText="Editar">
-                                <p:commandButton value="Editar" />
+                                <p:commandButton value="Editar" action="#{pendencias.editar(v)}" />
                             </p:column>
                             
                             <p:column headerText="Deletar">
-                                <p:commandButton value="Deletar" />
+                                <p:commandButton value="Deletar" action="#{pendencias.deletar(v)}"/>
                             </p:column>
                         </p:dataTable>
 

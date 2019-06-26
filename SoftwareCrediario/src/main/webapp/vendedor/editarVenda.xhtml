@@ -4,34 +4,34 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">>
-
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
     <h:body>
-        <ui:composition  template="/templates/common.xhtml">
+        <ui:composition template="/templates/common.xhtml">
             <ui:define name="content">
-                <div class="conteudo">
+               <div class="conteudo">
                     <h:form id="frm">
                         <!-- <p:messages /> -->
                         <p:growl id="growl" showDetail="true" sticky="true" /> 
                         
                         <p:panelGrid style="margin: auto" columns="2">
                             <p:outputLabel value="Cliente: " for="nome"  />
-                            <p:outputLabel id="nome" value="#{administrar.clienteAtual.nome}"/>
+                            <p:outputLabel id="nome" value="#{pendencias.vendaAtual.cliente.nome}"/>
 
                             <p:outputLabel value="Nome da mercadoria: " for="cpf" />
-                            <p:inputText id="cpf" required="true" requiredMessage="Nome é obrigatório" value="#{venda.vendaAtual.nome}"/>
+                            <p:inputText id="cpf" required="true" requiredMessage="Nome é obrigatório" value="#{pendencias.vendaAtual.nome}"/>
 
                             <p:outputLabel value="Valor: " for="end" />
-                            <p:inputText id="end" required="true" requiredMessage="Endereço é obrigatório" value="#{venda.vendaAtual.valor}"/>
+                            <p:inputText id="end" required="true" requiredMessage="Endereço é obrigatório" value="#{pendencias.vendaAtual.valor}"/>
 
                             <p:outputLabel value="Nº parcelas " for="num"/>
-                            <p:inputText id="num" value="#{venda.vendaAtual.numParcelas}"/>
+                            <p:inputText id="num" value="#{pendencias.vendaAtual.numParcelas}"/>
 
                             <p:outputLabel value="Valor parcelas: " for="comp" />
-                            <p:inputText id="comp" value="#{venda.vendaAtual.valorParcelas}"/>
+                            <p:inputText id="comp" value="#{pendencias.vendaAtual.valorParcelas}"/>
 
                             <p:outputLabel value="Data de lançamento: " />
-                            <p:inputMask id="fData" mask="99/99/9999" value="#{venda.vendaAtual.data}" 
+                            <p:inputMask id="fData" mask="99/99/9999" value="#{pendencias.vendaAtual.data}" 
                                          requiredMessage="Formato de data inválido">
                                 <f:convertDateTime pattern="dd/MM/yyyy" for="fData" />
                             </p:inputMask>
@@ -39,13 +39,13 @@
                             <p:outputLabel />
                             <p:commandButton value="Salvar" action="#{venda.realizarVenda()}" update="frm"/>
                         </p:panelGrid>
-                        <p:outputLabel value="#{venda.vendaAtual.id}" />
+                       
                     </h:form>
 
                 </div>
-
+                
             </ui:define>
-
+            
         </ui:composition>
     </h:body>
 </html>
