@@ -19,19 +19,23 @@ public class VendaDAO {
 
     public Venda findById(Integer id) {
         Venda object = (Venda) session.get(Venda.class, id);
+        session.close();
         return object;
+        
     }
 
     public void save(Venda object) {
         Transaction t = session.beginTransaction();
         session.saveOrUpdate((Venda) object);
         t.commit();
+        session.close();
     }
 
     public void delete(Venda object) {
         Transaction t = session.beginTransaction();
         session.delete((Venda) object);
         t.commit();
+        session.close();
     }
 
     public List<Venda> listAll() {
@@ -44,7 +48,7 @@ public class VendaDAO {
         query.select(klassRoot);
 
         List<Venda> result = session.createQuery(query).getResultList();
-
+        session.close();
         return result;
 
     }

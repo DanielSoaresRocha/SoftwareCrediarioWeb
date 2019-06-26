@@ -24,6 +24,7 @@ public class VendedorDAO {
 
     public Vendedor findById(Integer id) {
         Vendedor object = (Vendedor) session.get(Vendedor.class, id);
+         session.close();
         return object;
     }
 
@@ -31,12 +32,14 @@ public class VendedorDAO {
         Transaction t = session.beginTransaction();
         session.saveOrUpdate((Vendedor) object);
         t.commit();
+         session.close();
     }
 
     public void delete(Vendedor object) {
         Transaction t = session.beginTransaction();
         session.delete((Vendedor) object);
         t.commit();
+         session.close();
     }
 
     public List<Vendedor> listAll() {
@@ -49,7 +52,8 @@ public class VendedorDAO {
         query.select(klassRoot);
 
         List<Vendedor> result = session.createQuery(query).getResultList();
-
+        
+        session.close();
         return result;
 
     }

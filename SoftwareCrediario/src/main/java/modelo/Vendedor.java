@@ -16,7 +16,7 @@ public class Vendedor implements Serializable {
     @Column(name = "id_Vendedor")
     private int id;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL/*, fetch = FetchType.EAGER*/)
     @JoinTable(name = "vendedores_vendas", joinColumns = {
         @JoinColumn(name = "vendedor_id",
                 referencedColumnName = "id_vendedor")}, inverseJoinColumns = {
@@ -73,6 +73,44 @@ public class Vendedor implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + Objects.hashCode(this.vendas);
+        hash = 97 * hash + Objects.hashCode(this.cpf);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vendedor other = (Vendedor) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.vendas, other.vendas)) {
+            return false;
+        }
+        return true;
+    }
       
+    
 
 }

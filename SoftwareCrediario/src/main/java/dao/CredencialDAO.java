@@ -23,6 +23,7 @@ public class CredencialDAO {
 
     public Credencial findById(Integer id) {
         Credencial object = (Credencial) session.get(Credencial.class, id);
+        session.close();
         return object;
     }
 
@@ -30,12 +31,14 @@ public class CredencialDAO {
         Transaction t = session.beginTransaction();
         session.saveOrUpdate((Credencial) object);
         t.commit();
+        session.close();
     }
 
     public void delete(Credencial object) {
         Transaction t = session.beginTransaction();
         session.delete((Credencial) object);
         t.commit();
+        session.close();
     }
 
     public List<Credencial> listAll() {
@@ -48,7 +51,7 @@ public class CredencialDAO {
         query.select(klassRoot);
 
         List<Credencial> result = session.createQuery(query).getResultList();
-
+        session.close();
         return result;
 
     }

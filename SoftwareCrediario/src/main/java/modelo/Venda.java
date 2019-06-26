@@ -29,7 +29,7 @@ public class Venda implements Serializable {
     }
     
     @ManyToOne
-    @JoinColumn(name = "cliente",nullable = false)
+    @JoinColumn(name = "cliente"/*,nullable = false*/)
     private Cliente cliente;
 
     public Venda() {
