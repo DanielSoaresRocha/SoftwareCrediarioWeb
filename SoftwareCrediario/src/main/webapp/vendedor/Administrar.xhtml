@@ -10,7 +10,7 @@
             <ui:define name="content">
                 #{administrar.listar()}
                 <h:form id="form">
-                    <div style="text-align: center;" class="conteudo">
+                    <div style="text-align: center; font-size: 20px;" class="conteudo">
 
                         <p:dataTable id="data" value="#{administrar.listaClientes}" var="cliente">
                             <p:column headerText="Nome">
@@ -30,7 +30,7 @@
                             </p:column>
                             
                             <p:column headerText="Realizar Venda">
-                                <p:commandButton value="venda" action="#{administrar.realizarVenda(cliente)}"/>
+                                <p:commandButton value="venda" action="#{administrar.realizarVenda(cliente)}" update="form"/>
                             </p:column>
                             
                             <p:column headerText="Editar">

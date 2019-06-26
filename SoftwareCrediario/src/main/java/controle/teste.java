@@ -76,6 +76,8 @@ public class teste {
         VendedorDAO vendedorDAO = new VendedorDAO();
        // vendedorDAO.save(vendedor);
         
+        
+       
         //Criando venda
         Venda venda = new Venda();
         venda.setNome("NovaVenda");

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+        Hello from Facelets
+    </h:body>
+
+    <ui:composition template="/templates/common.xhtml">
+        <ui:define name="content">
+            #{pendencias.listar()}
+            
+           <h:form id="form">
+                    <div style="text-align: center; font-size: 20px;" class="conteudo">
+
+                        <p:dataTable id="data" value="#{pendencias.vendas}" var="v">
+                            <p:column headerText="Cliente">
+                                <p:outputLabel value="#{v.cliente.nome}" />
+                            </p:column>
+
+                            <p:column headerText="Mercadoria">
+                                <p:outputLabel value="#{v.nome}" />
+                            </p:column>
+
+                            <p:column headerText="Data">
+                                <p:outputLabel value="#{v.data}" />
+                            </p:column>
+
+                            <p:column headerText="Valor">
+                                <p:outputLabel value="#{v.valor}" />
+                            </p:column>
+                            
+                            <p:column headerText="Valor/parcelas">
+                                <p:outputLabel value="#{v.numParcelas}" />
+                            </p:column>
+                            
+                            <p:column headerText="Realizar Cobrança">
+                                <p:commandButton icon="/resources/image/cobrar.png" />
+                            </p:column>
+                            
+                            <p:column headerText="Editar">
+                                <p:commandButton value="Editar" />
+                            </p:column>
+                            
+                            <p:column headerText="Deletar">
+                                <p:commandButton value="Deletar" />
+                            </p:column>
+                        </p:dataTable>
+
+                    </div>
+                </h:form>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

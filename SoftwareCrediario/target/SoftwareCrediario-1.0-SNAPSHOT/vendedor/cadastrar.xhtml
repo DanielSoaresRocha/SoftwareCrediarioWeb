@@ -11,6 +11,7 @@
                 <div class="conteudo">
                     <h:form id="frm">
                        <!-- <p:messages /> -->
+                       <p:growl id="growl" showDetail="true" sticky="true" /> 
                        <p:panelGrid style="margin: auto" columns="2">
                             <p:outputLabel value="Nome: " for="nome"  />
                             <p:inputText id="nome" required="true" requiredMessage="Nome é obrigatório" value="#{cadastrar.clienteAtual.nome}"/>

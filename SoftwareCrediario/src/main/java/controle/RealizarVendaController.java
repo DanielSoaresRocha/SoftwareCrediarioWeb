@@ -44,13 +44,18 @@ public class RealizarVendaController {
         System.out.println("TENTANDO INSERIR VENDAS EM CLINTE");
         ClienteDAO daoC = new ClienteDAO(); // prepara DAO cliente
 
-        Cliente c = new Cliente();
-        c = clienteAtual.getClienteAtual(); //recebe cliente escolhido
-        /*
+        Cliente c = clienteAtual.getClienteAtual(); //recebe cliente escolhido      
+        System.out.println("Nome "+ c.getNome()+ " id "+ c.getId());
+        
+        //Alterando tipo de data
+        java.util.Date data = vendaAtual.getData();
+        java.sql.Date dataSql = new java.sql.Date(data.getTime());
+        vendaAtual.setData(dataSql);
+        
         c.addVenda(vendaAtual); //adiciona venda no 1 pra N
         
         System.out.println("Id = "+ c.getId()+ " Nome = "+ c.getNome());
-       // daoC.save(c); //salva cliente no banco*/
+        daoC.save(c); //salva cliente no banco*/
 
         vendaAtual = new Venda();
         return "/vendedor/Administrar.xhtml";

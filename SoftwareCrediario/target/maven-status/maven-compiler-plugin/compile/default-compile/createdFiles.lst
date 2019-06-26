@@ -19,6 +19,7 @@ controle\teste2.class
 genericdao\interfaces\IVendedorDao.class
 dao\VendedorDAO.class
 genericdao\impl\VendedorDaoImpl.class
+controle\PendenciasController.class
 genericdao\impl\GenericDaoImpl$2.class
 modelo\Cliente.class
 modelo\Credencial.class

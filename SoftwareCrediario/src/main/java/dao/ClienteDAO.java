@@ -20,6 +20,7 @@ public class ClienteDAO {
 
     public Cliente findById(Integer id) {
         Cliente object = (Cliente) session.get(Cliente.class, id);
+         session.close();
         return object;
     }
 
@@ -27,12 +28,14 @@ public class ClienteDAO {
         Transaction t = session.beginTransaction();
         session.saveOrUpdate((Cliente) object);
         t.commit();
+        session.close();
     }
 
     public void delete(Cliente object) {
         Transaction t = session.beginTransaction();
         session.delete((Cliente) object);
         t.commit();
+         session.close();
     }
 
     public List<Cliente> listAll() {

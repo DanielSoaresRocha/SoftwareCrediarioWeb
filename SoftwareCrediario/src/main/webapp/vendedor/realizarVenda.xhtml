@@ -3,15 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">>
-    
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">>
+
     <h:body>
         <ui:composition  template="/templates/common.xhtml">
             <ui:define name="content">
                 <div class="conteudo">
-                     <h:form>
-                       <!-- <p:messages /> -->
-                       <p:panelGrid style="margin: auto" columns="2">
+                    <h:form id="frm">
+                        <!-- <p:messages /> -->
+                        <p:growl id="growl" showDetail="true" sticky="true" /> 
+                        
+                        <p:panelGrid style="margin: auto" columns="2">
                             <p:outputLabel value="Cliente: " for="nome"  />
                             <p:inputText id="nome" required="true" requiredMessage="Nome é obrigatório" value="#{administrar.clienteAtual.nome}"/>
 
@@ -26,21 +29,23 @@
 
                             <p:outputLabel value="Valor parcelas: " for="comp" />
                             <p:inputText id="comp" value="#{venda.vendaAtual.valorParcelas}"/>
+
+                            <p:outputLabel value="Data de lançamento: " />
+                            <p:inputMask id="fData" mask="99/99/9999" value="#{venda.vendaAtual.data}" 
+                                         requiredMessage="Formato de data inválido">
+                                <f:convertDateTime pattern="dd/MM/yyyy" for="fData" />
+                            </p:inputMask>
                             
-                            <p:outputLabel value="Data: " for="comp2" />
-                            <p:inputText id="comp2" value="#{venda.vendaAtual.data}"/>
-
                             <p:outputLabel />
-                            <p:commandButton value="Salvar" action="#{venda.realizarVenda()}"/>
-
+                            <p:commandButton value="Salvar" action="#{venda.realizarVenda()}" update="frm"/>
                         </p:panelGrid>
-                       <p:outputLabel value="#{venda.vendaAtual.id}" />
+                        <p:outputLabel value="#{venda.vendaAtual.id}" />
                     </h:form>
-                    
+
                 </div>
-                
+
             </ui:define>
-            
+
         </ui:composition>
     </h:body>
 </html>
