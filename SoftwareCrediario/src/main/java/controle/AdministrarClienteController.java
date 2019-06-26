@@ -14,53 +14,56 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "administrar")
 @SessionScoped
 public class AdministrarClienteController {
-    private List<Cliente> listaClientes = new ArrayList<>();
+
+    private List<Cliente> listaClientes;
     private ClienteDAO dao;
-    private Cliente clienteAtual = new Cliente();
+    private Cliente clienteAtual;
 
     public AdministrarClienteController() {
         System.out.println("ENNNTTRROUUUUUUUUUUUUUUUUUUUUUUU");
+        clienteAtual = new Cliente();
+        listaClientes = new ArrayList<>();
         //listaClientes = new ArrayList<>();
         //clienteAtual = new Cliente();
-        
+
         //dao = new ClienteDAO();
         //listaClientes = dao.listAll();
-        
-        
-    }    
-    
-    public void listar(){
+    }
+
+    public void listar() {
         System.out.println("-----------------------Listou----------------");
         listaClientes = new ArrayList<>();
         dao = new ClienteDAO();
         listaClientes = dao.listAll();
     }
-    public String realizarVenda(Cliente c){
+
+    public String realizarVenda(Cliente c) {
         clienteAtual = new Cliente();
         clienteAtual = c;
-        
-        System.out.println("QUERENDO VENDER PARA: "+ clienteAtual.getId());
+
+        System.out.println("QUERENDO VENDER PARA: " + clienteAtual.getId());
         return "/vendedor/realizarVenda";
-        
+
     }
-    
-    public String excluirCliente(Cliente c){
+
+    public String excluirCliente(Cliente c) {
         dao = new ClienteDAO();
-        
+
         dao.delete(c);
-        
+
         return "/vendedor/Administrar.xhtml";
     }
-    
-    public String editarCliente(Cliente c){
+
+    public String editarCliente(Cliente c) {
         clienteAtual = c;
         return "/vendedor/editarCliente.xhtml";
     }
-    public String salvar(){
+
+    public String salvar() {
         dao = new ClienteDAO();
         dao.save(clienteAtual);
-        System.out.println("cliente salvo id ="+ clienteAtual.getId());
-       
+        System.out.println("cliente salvo id =" + clienteAtual.getId());
+
         return "/vendedor/Administrar.xhtml";
     }
 
@@ -71,9 +74,7 @@ public class AdministrarClienteController {
     public void setClienteAtual(Cliente clienteAtual) {
         this.clienteAtual = clienteAtual;
     }
-   
-    
-    
+
     public List<Cliente> getListaClientes() {
         return listaClientes;
     }
@@ -81,6 +82,5 @@ public class AdministrarClienteController {
     public void setListaClientes(List<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
     }
-    
-    
+
 }

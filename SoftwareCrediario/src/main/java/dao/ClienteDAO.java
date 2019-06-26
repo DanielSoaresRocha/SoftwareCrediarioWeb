@@ -45,7 +45,7 @@ public class ClienteDAO {
         query.select(klassRoot);
 
         List<Cliente> result = session.createQuery(query).getResultList();
-
+        session.close();
         return result;
 
     }
