@@ -20,6 +20,7 @@ import org.hibernate.Transaction;
 import persistencia.HibernateUtil;
 //import modelo.Senha;
 import modelo.Vendedor;
+import dao.ClienteDAO;
 
 /**
  *
@@ -28,6 +29,7 @@ import modelo.Vendedor;
 public class teste {
 
     public static void main(String[] args) {
+    /*        
         //Adicionar credencial avendedor         
         VendedorDAO daoV = new VendedorDAO();
         Vendedor v = new Vendedor();
@@ -60,12 +62,39 @@ public class teste {
         venda.setValorParcelas(50.0);
         venda.setNumParcelas(30);
         venda.setData(dataSql);
-        //daoVenda.save(venda);
+        VendaDAO daoVenda = new VendaDAO();
+        daoVenda.save(venda);
       
-        //c1.addVenda(venda);
+        c1.addVenda(venda);
         
         v.addVenda(venda);
-        daoV.save(v);
-
+        daoV.save(v);*/
+        //Criando vendedor
+        Vendedor vendedor = new Vendedor();
+        vendedor.setNome("Carlos");
+        
+        VendedorDAO vendedorDAO = new VendedorDAO();
+       // vendedorDAO.save(vendedor);
+        
+        //Criando venda
+        Venda venda = new Venda();
+        venda.setNome("NovaVenda");
+        
+        vendedor.addVenda(venda);
+        vendedorDAO.save(vendedor);
+        
+        //Criando Cliente
+        Cliente cliente = new Cliente();
+        cliente.setNome("Gustavo");
+        cliente.addVenda(venda);
+        
+        ClienteDAO clienteDAO = new ClienteDAO();
+        clienteDAO.save(cliente);
+        
+                
+        
+       
+        
+    
     }
 }
