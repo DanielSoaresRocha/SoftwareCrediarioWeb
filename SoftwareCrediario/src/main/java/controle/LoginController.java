@@ -82,6 +82,22 @@ public class LoginController {
 
         CredencialDAO daoC = new CredencialDAO();
         daoC.save(c);
+        //////////////////
+        
+        daoV = new VendedorDAO();
+        Vendedor v2 = new Vendedor();
+        v.setNome("Pipoquinha");
+        v.setCpf("3452345");
+        daoV.save(v2);
+        
+        c = new Credencial();
+        c.setLogin("Daniel2");
+        c.setSenha("admin2");
+        c.setVendedor(v2);
+        
+        daoC = new CredencialDAO();
+        daoC.save(c);
+        
 
     }
 
