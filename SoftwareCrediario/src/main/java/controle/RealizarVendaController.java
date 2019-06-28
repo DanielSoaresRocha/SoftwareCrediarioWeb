@@ -31,6 +31,7 @@ public class RealizarVendaController {
     }
 
     public String realizarVenda() {
+        vendaAtual.setValorPago(0.0);
         //tentando adicionar venda em vendedor - relação N pra N     
         Vendedor vendedor = vendedorAtual.getVendedorAtual();
 
@@ -41,20 +42,19 @@ public class RealizarVendaController {
         vendedor.addVenda(vendaAtual); //adicionando venda
         daoV.save(vendedor); //salvando no banco
 
-        System.out.println("TENTANDO INSERIR VENDAS EM CLINTE");
         ClienteDAO daoC = new ClienteDAO(); // prepara DAO cliente
 
         Cliente c = clienteAtual.getClienteAtual(); //recebe cliente escolhido      
-        System.out.println("Nome "+ c.getNome()+ " id "+ c.getId());
-        
+        System.out.println("Nome " + c.getNome() + " id " + c.getId());
+
         //Alterando tipo de data
         java.util.Date data = vendaAtual.getData();
         java.sql.Date dataSql = new java.sql.Date(data.getTime());
         vendaAtual.setData(dataSql);
-        
+
         c.addVenda(vendaAtual); //adiciona venda no 1 pra N
-        
-        System.out.println("Id = "+ c.getId()+ " Nome = "+ c.getNome());
+
+        System.out.println("Id = " + c.getId() + " Nome = " + c.getNome());
         daoC.save(c); //salva cliente no banco*/
 
         vendaAtual = new Venda();

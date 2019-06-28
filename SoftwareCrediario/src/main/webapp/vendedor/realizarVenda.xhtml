@@ -30,10 +30,16 @@
                             <p:outputLabel value="Valor parcelas: " for="comp" />
                             <p:inputText id="comp" value="#{venda.vendaAtual.valorParcelas}"/>
 
-                            <p:outputLabel value="Data de lançamento: " />
+                            <p:outputLabel value="Data da venda " />
                             <p:inputMask id="fData" mask="99/99/9999" value="#{venda.vendaAtual.data}" 
                                          requiredMessage="Formato de data inválido" required="true">
                                 <f:convertDateTime pattern="dd/MM/yyyy" for="fData" />
+                            </p:inputMask>
+                            
+                            <p:outputLabel value="Data da cobrança " />
+                            <p:inputMask id="fData2" mask="99/99/9999" value="#{venda.vendaAtual.data2}" 
+                                         requiredMessage="Formato de data inválido" required="true">
+                                <f:convertDateTime pattern="dd/MM/yyyy" for="fData2" />
                             </p:inputMask>
                             
                             <p:outputLabel />

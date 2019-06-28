@@ -32,6 +32,22 @@ public class PendenciasController {
         vendaAtual = new Venda();
     }
     
+    public String realizarCobranca(Venda v){
+        vendaAtual = v;
+        
+        return "/vendedor/cobranca.xhtml";
+    }
+    
+    public String finalizar(){
+        vendaDAO = new VendaDAO();
+        //System.out.println("valor = "+ vendaAtual.getValorParcelas());
+        vendaAtual.setValorPago(vendaAtual.getValorPago() + vendaAtual.getValorParcelas()); //pega o valor enviado e altera o valor pago
+        
+        vendaDAO.save(vendaAtual);
+        
+        return "/vendedor/Pendencias.xhtml";
+    }
+    
     public String editar(Venda v){
         vendaAtual = v;
         

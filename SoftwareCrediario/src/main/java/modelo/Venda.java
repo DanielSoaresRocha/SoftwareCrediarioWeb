@@ -50,6 +50,9 @@ public class Venda implements Serializable {
 
     @Column(name = "valor")
     private Double valor;
+    
+    @Column(name = "valor_pago")
+    private Double valorPago;
 
     @Column(name = "num_parcelas")
     private int numParcelas;
@@ -58,7 +61,12 @@ public class Venda implements Serializable {
     private Double valorParcelas;
     
     @Column(name = "data_venda")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date data;
+    
+    @Column(name = "data_cobranca")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date data2;
 
     public int getId() {
         return id;
@@ -74,6 +82,14 @@ public class Venda implements Serializable {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public Date getData2() {
+        return data2;
+    }
+
+    public void setData2(Date data2) {
+        this.data2 = data2;
     }
 
     
@@ -94,6 +110,16 @@ public class Venda implements Serializable {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
+    public Double getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(Double valorPago) {
+        this.valorPago = valorPago;
+    }
+    
+    
 
     public int getNumParcelas() {
         return numParcelas;

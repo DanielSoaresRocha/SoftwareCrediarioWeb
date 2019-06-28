@@ -7,9 +7,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <h:body>
-        <ui:composition template="/templates/common.xhtml">
+       <ui:composition template="/templates/common.xhtml">
             <ui:define name="content">
-               <div class="conteudo">
+                 <div class="conteudo">
                     <h:form id="frm">
                         <!-- <p:messages /> -->
                         <p:growl id="growl" showDetail="true" sticky="true" /> 
@@ -19,39 +19,26 @@
                             <p:outputLabel id="nome" value="#{pendencias.vendaAtual.cliente.nome}"/>
 
                             <p:outputLabel value="Nome da mercadoria: " for="cpf" />
-                            <p:inputText id="cpf" required="true" requiredMessage="Nome é obrigatório" value="#{pendencias.vendaAtual.nome}"/>
+                            <p:outputLabel id="cpf" value="#{pendencias.vendaAtual.nome}"/>
 
-                            <p:outputLabel value="Valor: " for="end" />
-                            <p:inputText id="end" required="true" requiredMessage="Endereço é obrigatório" value="#{pendencias.vendaAtual.valor}"/>
-
-                            <p:outputLabel value="Nº parcelas " for="num"/>
-                            <p:inputText id="num" value="#{pendencias.vendaAtual.numParcelas}"/>
-
-                            <p:outputLabel value="Valor parcelas: " for="comp" />
+                            <p:outputLabel value="Valor pago" for="comp" />
                             <p:inputText id="comp" value="#{pendencias.vendaAtual.valorParcelas}"/>
-
-                            <p:outputLabel value="Data da venda " />
-                            <p:inputMask id="fData" mask="99/99/9999" value="#{pendencias.vendaAtual.data}" 
-                                         requiredMessage="Formato de data inválido">
-                                <f:convertDateTime pattern="dd/MM/yyyy" for="fData" />
-                            </p:inputMask>
-                            
-                            <p:outputLabel value="Data da cobrança " />
+                                                    
+                            <p:outputLabel value="Data para próxima cobrança " />
                             <p:inputMask id="fData2" mask="99/99/9999" value="#{pendencias.vendaAtual.data2}" 
                                          requiredMessage="Formato de data inválido">
                                 <f:convertDateTime pattern="dd/MM/yyyy" for="fData2" />
                             </p:inputMask>
                             
                             <p:outputLabel />
-                            <p:commandButton value="Salvar Alterações" action="#{pendencias.salvar()}" update="frm"/>
+                            <p:commandButton value="Finalizar" action="#{pendencias.finalizar()}" update="frm"/>
                         </p:panelGrid>
                        
                     </h:form>
 
                 </div>
-                
+
             </ui:define>
-            
         </ui:composition>
     </h:body>
 </html>
