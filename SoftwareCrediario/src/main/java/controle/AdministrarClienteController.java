@@ -1,15 +1,17 @@
 package controle;
 
 import dao.ClienteDAO;
+import dao.VendaDAO;
 
 import modelo.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "administrar")
 @SessionScoped
@@ -21,11 +23,9 @@ public class AdministrarClienteController {
 
     public AdministrarClienteController() {
         System.out.println("ENNNTTRROUUUUUUUUUUUUUUUUUUUUUUU");
-        clienteAtual = new Cliente();
-        listaClientes = new ArrayList<>();
-        //listaClientes = new ArrayList<>();
         //clienteAtual = new Cliente();
-
+        listaClientes = new ArrayList<>();
+        
         //dao = new ClienteDAO();
         //listaClientes = dao.listAll();
     }
@@ -47,20 +47,39 @@ public class AdministrarClienteController {
     }
 
     public String excluirCliente(Cliente c) {
+        FacesContext context = FacesContext.getCurrentInstance();
+
         dao = new ClienteDAO();
+        if (c.getVendas().isEmpty()) {
+            System.out.println("O CLIENTE N TINHA VENDAS");
+            dao.delete(c);
 
-        dao.delete(c);
+            FacesMessage mensagem = new FacesMessage("O cliente foi excluido com sucesso");
+            mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage(null, mensagem);
 
+        } else {
+            System.out.println("O CLIENTE TEM VENDAS");
+            FacesMessage mensagem = new FacesMessage("O cliente possui vendas assossiadas, exclua a sua venda relacionada primeiro");
+            mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage(null, mensagem);
+        }
+
+        //return null;
         return "/vendedor/Administrar.xhtml";
     }
 
     public String editarCliente(Cliente c) {
+        clienteAtual = new Cliente();
         clienteAtual = c;
+        System.out.println("QUETENDO SALVAR "+ clienteAtual.getId() + " nome = "+ clienteAtual.getNome());
         return "/vendedor/editarCliente.xhtml";
     }
 
     public String salvar() {
+        
         dao = new ClienteDAO();
+        System.out.println("SALVANDO "+ clienteAtual.getId() + " nome = "+ clienteAtual.getNome());
         dao.save(clienteAtual);
         System.out.println("cliente salvo id =" + clienteAtual.getId());
 

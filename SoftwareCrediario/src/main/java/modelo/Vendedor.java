@@ -1,5 +1,6 @@
 package modelo;
 
+import dao.VendaDAO;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,9 @@ public class Vendedor implements Serializable {
 
     public void removeVenda(Venda nVenda) {
         vendas.remove(nVenda);
+
         nVenda.getVendedores().remove(this);
+        
     }
 
     @Column(name = "cpf")

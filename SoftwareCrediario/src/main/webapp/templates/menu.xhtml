@@ -8,18 +8,27 @@
     <h:body>
         <ui:composition>
             <div class = "menu">
-                <h:form>
+                <h:form>                   
+                    <p:growl id="messages" showDetail="false"/>
 
-                    <p:outputLabel value="Menu" /> <br/>
-                    <hr/>
-                    <p:commandButton value="Cadastrar cliente" action="/vendedor/cadastrar.xhtml" /> <br/>
-                    <hr/>
-                    <p:commandButton value="Administrar cliente" action="/vendedor/Administrar.xhtml"/> <br/>                  
-                    <hr/>
-                    <p:commandButton value="Visualizar Pendências" action="/vendedor/Pendencias.xhtml"/> <br/>
-                    <hr/>
-                    <p:commandButton value="sair" action="#{login.sair()}" /> <br/>
-
+                    <h3 style="margin-top:0">Menu</h3>
+                    <p:menu>
+                        <p:submenu label="Cadastrar">
+                            <p:menuitem value="Cadastrar cliente" action="/vendedor/cadastrar.xhtml" update="messages" icon="pi pi-save" />
+                        </p:submenu>
+                        <p:submenu label="Administração">
+                            <p:menuitem value="Administrar cliente" action="/vendedor/Administrar.xhtml" update="messages" icon="pi pi-save" />
+                            
+                        </p:submenu>
+                        <p:submenu label="Cobranças">
+                            <p:menuitem value="Visualizar Pendências" action="/vendedor/Pendencias.xhtml"/>
+                            
+                        </p:submenu>
+                        <p:submenu label="Logoff">
+                            <p:menuitem value="sair" action="#{login.sair()}" />
+                            
+                        </p:submenu>
+                    </p:menu>
                 </h:form>
             </div>
 

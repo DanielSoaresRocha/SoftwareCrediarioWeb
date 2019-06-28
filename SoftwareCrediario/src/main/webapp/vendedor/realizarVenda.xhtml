@@ -32,7 +32,7 @@
 
                             <p:outputLabel value="Data de lançamento: " />
                             <p:inputMask id="fData" mask="99/99/9999" value="#{venda.vendaAtual.data}" 
-                                         requiredMessage="Formato de data inválido">
+                                         requiredMessage="Formato de data inválido" required="true">
                                 <f:convertDateTime pattern="dd/MM/yyyy" for="fData" />
                             </p:inputMask>
                             

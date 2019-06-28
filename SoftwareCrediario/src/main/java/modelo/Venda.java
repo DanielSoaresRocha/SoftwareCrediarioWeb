@@ -17,7 +17,7 @@ public class Venda implements Serializable {
     @Column(name = "id_venda")
     private int id;
 
-    @ManyToMany(mappedBy = "vendas")
+    @ManyToMany(mappedBy = "vendas",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private List<Vendedor> vendedores = new ArrayList<>();
     
     

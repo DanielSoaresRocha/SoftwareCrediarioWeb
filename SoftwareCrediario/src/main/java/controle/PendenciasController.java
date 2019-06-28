@@ -1,13 +1,16 @@
 
 package controle;
 
+import dao.ClienteDAO;
 import java.util.ArrayList;
 import java.util.List;
 
 import dao.VendaDAO;
-import modelo.Venda;
+import dao.VendedorDAO;
+import modelo.*;
         
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 
@@ -18,7 +21,12 @@ public class PendenciasController {
     private List<Venda> vendas;
     private Venda vendaAtual;
     
+     
+    @ManagedProperty(value = "#{login}")
+    private LoginController vendedorAtual;
+    
     public PendenciasController() {
+        System.out.println("ENTROUU EM PENDENCIAS");
         vendaDAO = new VendaDAO();
         vendas = new ArrayList<>();
         vendaAtual = new Venda();
@@ -38,9 +46,32 @@ public class PendenciasController {
         return "/vendedor/Pendencias.xhtml";
     }
     
-    public void deletar(Venda c){
+    public void deletar(Venda p){
+        VendedorDAO vendedorDAO = new VendedorDAO();
+        Vendedor v = vendedorAtual.getVendedorAtual();
+        v.getVendas().remove(p); //removendo venda de vendedor
+        //v.removeVenda(p);
+        vendedorDAO.save(v); //salvando
+        System.out.println("REMOVEU DE VENDEDOR");
+        
+      
+        //p.getVendedores().remove(v); //removendo vendedor de venda
         vendaDAO = new VendaDAO();
-        vendaDAO.delete(c);
+        p.getCliente().removeVenda(p); //removendo venda de cliente
+        
+        p.setCliente(null); //removendo cliente de venda
+        vendaDAO.save(p);
+        System.out.println("TIROU CLIENTE DE VENDA");
+        
+        
+        vendaDAO = new VendaDAO();
+        p.getVendedores().remove(p);//removendo vendedor de vendas
+        
+        vendaDAO.save(p);
+        
+        vendaDAO = new VendaDAO();
+        vendaDAO.delete(p);
+        System.out.println("REMOVEU VENDA");
     }
 
     public void listar(){
@@ -57,6 +88,14 @@ public class PendenciasController {
 
     public void setVendas(List<Venda> vendas) {
         this.vendas = vendas;
+    }
+
+    public LoginController getVendedorAtual() {
+        return vendedorAtual;
+    }
+
+    public void setVendedorAtual(LoginController vendedorAtual) {
+        this.vendedorAtual = vendedorAtual;
     }
 
     
