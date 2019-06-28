@@ -42,6 +42,9 @@
                                 <f:convertDateTime pattern="dd/MM/yyyy" for="fData2" />
                             </p:inputMask>
                             
+                            <p:outputLabel value="Valor pago " for="valor" />
+                            <p:inputText id="valor" value="#{pendencias.vendaAtual.valorPago}"/>
+                            
                             <p:outputLabel />
                             <p:commandButton value="Salvar Alterações" action="#{pendencias.salvar()}" update="frm"/>
                         </p:panelGrid>
